@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqExample", "LinqExample\LinqExample.csproj", "{18E01890-9572-4CAC-8522-940471A4C512}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinqExample", "LinqExample\LinqExample.csproj", "{18E01890-9572-4CAC-8522-940471A4C512}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delegates", "Delegates\Delegates.csproj", "{5D649EBA-AE21-42D1-A285-03F8B60D8021}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{18E01890-9572-4CAC-8522-940471A4C512}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18E01890-9572-4CAC-8522-940471A4C512}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18E01890-9572-4CAC-8522-940471A4C512}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D649EBA-AE21-42D1-A285-03F8B60D8021}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D649EBA-AE21-42D1-A285-03F8B60D8021}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D649EBA-AE21-42D1-A285-03F8B60D8021}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D649EBA-AE21-42D1-A285-03F8B60D8021}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

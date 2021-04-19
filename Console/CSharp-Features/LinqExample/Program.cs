@@ -23,9 +23,9 @@ namespace LinqExample
             var studentQuery4 =
                 from student in Info.studentInfo
                 group student by student.ID into studentGroup
-                orderby studentGroup.Key ascending   
+                orderby studentGroup.Key
                 select studentGroup;
-
+             
             /*  foreach (Student student in studentQuery4)
   {
               Console.WriteLine("{0}, {1}", student.ID, student.First);
