@@ -9,21 +9,12 @@ namespace Delegates
             var DelegateInstance = new DelegateClass();
            
             var text = "my message";
-            DelegateInstance.processText(text, NewPrintingMethod);
+            DelegateInstance.processText(text, DelegateLogic.NewPrintingMethod);
 
 
         }
-        public static void NewPrintingMethod(string textToPrint)
-        {
-
-            Console.WriteLine($".......{textToPrint}.....");
-
-
-        }
-        public static void printingMethod(string textToPrint)
-        {
-            Console.WriteLine($".....{textToPrint}.....");
-        }
+       
+       
         
 
 

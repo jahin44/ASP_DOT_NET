@@ -15,6 +15,7 @@ namespace Delegates
                 perform(text);
             }
         }
+        
 
     }
 }
