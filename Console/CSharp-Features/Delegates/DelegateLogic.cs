@@ -14,7 +14,7 @@ namespace Delegates
 
         }
 
-        public static void printingMethod(string textToPrint)
+        public static void PrintingMethod(string textToPrint)
         {
             Console.WriteLine($".....{textToPrint}.....");
         }
