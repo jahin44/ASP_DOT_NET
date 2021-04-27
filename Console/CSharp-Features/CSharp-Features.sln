@@ -21,7 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Properti", "Properti\Proper
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Constructor", "Constructor\Constructor.csproj", "{CB8787FB-108A-4613-B330-F81DD31046A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Association", "Association\Association.csproj", "{EDBEB8C0-7C34-4573-BFCD-738326705D07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Association", "Association\Association.csproj", "{EDBEB8C0-7C34-4573-BFCD-738326705D07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserRelationship", "UserRelationship\UserRelationship.csproj", "{9B947E03-0084-4607-B5BF-430D9ED4E222}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{EDBEB8C0-7C34-4573-BFCD-738326705D07}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDBEB8C0-7C34-4573-BFCD-738326705D07}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDBEB8C0-7C34-4573-BFCD-738326705D07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B947E03-0084-4607-B5BF-430D9ED4E222}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B947E03-0084-4607-B5BF-430D9ED4E222}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B947E03-0084-4607-B5BF-430D9ED4E222}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B947E03-0084-4607-B5BF-430D9ED4E222}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
