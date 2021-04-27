@@ -6,17 +6,19 @@ namespace Inheritance
 {
    public class SpecialAcount:BankAcount
     {
-        public int ServiceCharg()
+        private int serviceCharg { get; set; }
+        public int ServiceCharg(int balance)
         {
             var num = 0;
-            var bankAcount = new BankAcount();
-            var balance = bankAcount.Balance;
-            if (balance % 1000 != 0)
+        if (balance / 1000 != 0)
             {
-                num = balance % 1000;
+                num = balance / 1000;
+                serviceCharg = num;
+
                 return num * 15;
             }
 
+            serviceCharg = num;
 
             return num;
         }

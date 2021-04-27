@@ -7,19 +7,24 @@ namespace Inheritance
     public class GenaralAcount:BankAcount
 
     {
-     public int Interest()
+     private int interest { set; get; }
+     public int Interest(int balance)
         {
             var num= 0;
-            var bankAcount = new BankAcount();
-            var balance = bankAcount.Balance ;
-            if (balance%1000!=0)
+           
+            if (balance/1000!=0)
             {
-               num = balance % 1000;
-               return num * 10;
+               num = balance / 1000;
+                interest = num;
+
+                return num * 10;
             }
-           return num;
+            interest = num;
+
+            return num;
 
         }
+
 
         
     }
