@@ -11,7 +11,7 @@ namespace Override
             genaralAcount.Name = "jahin";
             genaralAcount.AddTK(500000);
             genaralAcount.Interest(genaralAcount.Balance);
-            genaralAcount.widraw(20000);
+            genaralAcount.withdrow(20000);
             genaralAcount.Interest(genaralAcount.Balance);
             genaralAcount.CheckBalance();
 
@@ -20,7 +20,7 @@ namespace Override
             specialAcount.Name = "Supty";
             specialAcount.AddTK(100000);
             specialAcount.ServiceCharg(specialAcount.Balance);
-            specialAcount.widraw(30000);
+            specialAcount.withdrow(5000000);
             specialAcount.ServiceCharg(specialAcount.Balance);
             specialAcount.CheckBalance();
         }
