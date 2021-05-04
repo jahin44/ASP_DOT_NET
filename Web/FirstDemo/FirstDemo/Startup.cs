@@ -63,7 +63,7 @@ namespace FirstDemo
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Jahin}/{action=Jahin}/{id?}");
                 endpoints.MapRazorPages();
             });
         }
