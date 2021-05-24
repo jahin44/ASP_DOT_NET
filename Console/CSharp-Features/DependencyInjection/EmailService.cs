@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DependencyInjection
 {
-   public class EmailService
+   public class EmailService : IEmailClass
     {
         public void AccountRecorary(string email)
         {

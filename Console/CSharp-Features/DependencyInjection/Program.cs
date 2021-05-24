@@ -7,8 +7,8 @@ namespace DependencyInjection
         static void Main(string[] args)
         {
 
-            var ManageAccountService = new AccountManageService(new SepcialDatabaseAccess());
-            ManageAccountService.CreateAccount("jahinhasan1@gmail.com", "123456");
+            var ManageAccountService = new AccountManageService(new DatabaseAccess(),new EmailService());
+            ManageAccountService.CreateAccount("jahinhasan1@gmail.com", "1234");
              
 
         }

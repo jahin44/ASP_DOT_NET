@@ -10,6 +10,7 @@ namespace DependencyInjection
     {
         public void DeleteAccount(string email)
         {
+            Console.WriteLine("Account is Deleted");
 
         }
 

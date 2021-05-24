@@ -9,10 +9,13 @@ namespace DependencyInjection
    public class AccountManageService
     {
         private IDatabaseAccess _databaseAccess;
+        private IEmailClass _emailSend;
 
-        public AccountManageService(IDatabaseAccess databaseAccess)
+
+        public AccountManageService(IDatabaseAccess databaseAccess, IEmailClass emailSend)
         {
             _databaseAccess = databaseAccess;
+            _emailSend = emailSend;
         }
          
 
@@ -24,12 +27,14 @@ namespace DependencyInjection
 
                 try
                 {
-                    var emailService = new EmailService();
-                    emailService.UseEmail(email);
+                    _databaseAccess.DeleteAccount(email);
+
+
+
                 }
                 catch
                 {
-                    _databaseAccess.DeleteAccount(email);
+                    _emailSend.UseEmail(email);
                 }
              }
             
