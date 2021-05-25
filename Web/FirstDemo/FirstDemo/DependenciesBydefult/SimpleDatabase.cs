@@ -8,7 +8,7 @@ namespace FirstDemo.DependenciesBydefult
     public class SimpleDatabase : IDatabase
     {
         private ISimpleClassDependency _simpleClassDependency;
-        SimpleDatabase(ISimpleClassDependency simpleDatabase)
+       public SimpleDatabase(ISimpleClassDependency simpleDatabase)
         {
             _simpleClassDependency = simpleDatabase;
 
