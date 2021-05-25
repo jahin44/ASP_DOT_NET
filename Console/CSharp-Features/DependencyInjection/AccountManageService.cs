@@ -27,14 +27,12 @@ namespace DependencyInjection
 
                 try
                 {
-                    _databaseAccess.DeleteAccount(email);
-
-
-
+                  
+                    _emailSend.UseEmail(email);
                 }
                 catch
                 {
-                    _emailSend.UseEmail(email);
+                    _databaseAccess.DeleteAccount(email);
                 }
              }
             

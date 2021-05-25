@@ -1,4 +1,5 @@
 using FirstDemo.Data;
+using FirstDemo.DependenciesBydefult;
 using FirstDemo.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -64,6 +65,8 @@ namespace FirstDemo
                 options.Cookie.IsEssential = true;
             });
 
+            services.AddTransient<IDatabase, SimpleDatabase>();
+
 
             services.Configure<SmtpConfiguration>(Configuration.GetSection("Smtp"));
 
@@ -108,7 +111,7 @@ namespace FirstDemo
 
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Jahin}/{action=Jahin}/{id?}");
+                    pattern: "{controller=Jahin}/{action=hasan}/{id?}");
                 endpoints.MapRazorPages();
             });
         }

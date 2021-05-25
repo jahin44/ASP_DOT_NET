@@ -1,4 +1,5 @@
-﻿using FirstDemo.Models;
+﻿using FirstDemo.DependenciesBydefult;
+using FirstDemo.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,8 +10,17 @@ namespace FirstDemo.Controllers
 {
     public class JahinController : Controller
     {
-        public IActionResult Jahin()
+        private IDatabase _databaseaccess;
+       
+        public JahinController(IDatabase databaseaccess)
         {
+            _databaseaccess = databaseaccess;
+        }
+       
+        public IActionResult hasan()
+        {
+            var value = _databaseaccess.EmailSend();
+
             var Model = new JahinModel();
             return View(Model);
         }
