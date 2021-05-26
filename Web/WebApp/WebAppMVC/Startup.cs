@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebAppMVC.Data;
+using WebAppMVC.DependencyAuto;
 using WebAppMVC.Models;
 
 namespace WebAppMVC
@@ -67,6 +68,7 @@ namespace WebAppMVC
             services.AddHttpContextAccessor();
             services.AddRazorPages();
             services.AddDatabaseDeveloperPageExceptionFilter();
+            services.AddTransient<IDatabaseUse, SimpleDatabase>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

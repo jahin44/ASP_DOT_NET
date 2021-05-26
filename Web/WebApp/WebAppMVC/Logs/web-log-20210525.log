@@ -19,3 +19,4 @@ System.InvalidOperationException: Unable to resolve service for type 'Microsoft.
    at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
    at WebAppMVC.Program.Main(String[] args) in D:\GitHub\ASP_DOT_NET\Web\WebApp\WebAppMVC\Program.cs:line 32
 2021-05-25 22:05:52.932 +06:00 [INF] Application Starting up
+2021-05-25 22:49:45.945 +06:00 [INF] Application Starting up
