@@ -1,3 +1,5 @@
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -34,11 +36,20 @@ namespace WebAppMVC
 
         public IConfiguration Configuration { get; }
         public IWebHostEnvironment WebHostEnvironment { get; set; }
+        public static ILifetimeScope AutofacContainer { get; set; }
+
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+
+            builder.RegisterModule(new WebModule());
+        }
+
 
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.ConfigureApplicationCookie(options =>
             {
                 // Cookie settings
@@ -68,12 +79,14 @@ namespace WebAppMVC
             services.AddHttpContextAccessor();
             services.AddRazorPages();
             services.AddDatabaseDeveloperPageExceptionFilter();
-            services.AddTransient<IDatabaseUse, SimpleDatabase>();
+             
+            services.AddTransient<IDriver, DriverInstall>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            AutofacContainer = app.ApplicationServices.GetAutofacRoot();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
