@@ -110,7 +110,7 @@ namespace WebAppMVC
             {
                 endpoints.MapControllerRoute(
                 name: "areas",
-                pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{Id?}"
+                pattern: "{area:exists}/{controller=Admin}/{action=Index}/{Id?}"
               );
                 endpoints.MapControllerRoute(
                     name: "default",
