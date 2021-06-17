@@ -16,7 +16,7 @@ namespace ADONET
             }
 
             using SqlCommand command = new SqlCommand();
-            var sql = "insert into Student (Name, Weight) values('Supty', 70)";
+            var sql = "insert into Student (Name, Weight) values('hasan', 80)";
             command.Connection = connection;
 
             WriteOperation(sql, connection);
