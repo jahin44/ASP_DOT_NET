@@ -35,7 +35,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RunTimePolymorphisum", "Run
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DependencyInjection", "DependencyInjection\DependencyInjection.csproj", "{C4D80CF6-77D8-4BC0-B21D-AACEF0AE771A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADONET", "ADONET\ADONET.csproj", "{8542BAB3-BFB7-4DC6-BEB4-F19BBC073F0F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ADONET", "ADONET\ADONET.csproj", "{8542BAB3-BFB7-4DC6-BEB4-F19BBC073F0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Removed", "Removed\Removed.csproj", "{5860A6B0-0BA8-4A99-A51B-EA6A37B7C29B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -111,6 +113,10 @@ Global
 		{8542BAB3-BFB7-4DC6-BEB4-F19BBC073F0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8542BAB3-BFB7-4DC6-BEB4-F19BBC073F0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8542BAB3-BFB7-4DC6-BEB4-F19BBC073F0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5860A6B0-0BA8-4A99-A51B-EA6A37B7C29B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5860A6B0-0BA8-4A99-A51B-EA6A37B7C29B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5860A6B0-0BA8-4A99-A51B-EA6A37B7C29B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5860A6B0-0BA8-4A99-A51B-EA6A37B7C29B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
