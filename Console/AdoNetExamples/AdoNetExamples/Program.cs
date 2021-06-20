@@ -15,13 +15,14 @@ namespace AdoNetExamples
 
             Student student = new Student();
             MyORM<Student> ORM = new MyORM<Student>(connection.ConnectionString);
-            student.Name ="Supty" ;
-            student.Weight = 75;
-            
-
-            ORM.Insert(student);
+            student.Id = 5;
+            student.Name ="Hasan" ;
+            student.Weight =85;
 
 
+            //ORM.Insert(student);
+            //ORM.Update(student);
+            ORM.Delete(student);
 
 
 
