@@ -10,9 +10,7 @@ namespace AdoNetExamples
         {
             using SqlConnection connection = new SqlConnection();
             connection.ConnectionString = "Server = DESKTOP-9UKEJ28\\SQLEXPRESS; Database = CSharpData; User Id = admin; Password = 123456;";
-            var sql = "insert into student (name, weight) values('jalaluddin', 23)";
-            //WriteOperation(sql, connection);
-
+ 
             Student student = new Student();
             MyORM<Student> ORM = new MyORM<Student>(connection.ConnectionString);
             //student.Id = 5;
@@ -23,14 +21,23 @@ namespace AdoNetExamples
             //ORM.Insert(student);
             //ORM.Update(student);
             //ORM.Delete(student);
-           
+
             //get all data 
-            var TableData = ORM.GetAll(student);
-            foreach (var data in TableData)
-            {
-                Console.WriteLine($"Id = {data.Id}, Name = {data.Name}, Weight = {data.Weight}");
-            }
-         
+            //var TableData = ORM.GetAll();
+
+            //foreach (var data in TableData)
+            //{
+            //    Console.WriteLine($"Id = {data.Id}, Name = {data.Name}, Weight = {data.Weight}");
+            //}
+
+
+            //Get By ID
+            
+            var IdData = ORM.GetById(1002);
+            Console.WriteLine($"Id = {IdData.Id}, Name = {IdData.Name}, Weight = {IdData.Weight}");
+
+
+
             Console.WriteLine($"Successfull");
         }
          

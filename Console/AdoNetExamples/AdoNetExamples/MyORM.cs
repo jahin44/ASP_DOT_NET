@@ -158,12 +158,12 @@ namespace AdoNetExamples
 
         //Get All
 
-        public IList<T> GetAll(T item)
+        public IList<T> GetAll()
         {
             if (_sqlConnection.State == System.Data.ConnectionState.Closed)
                 _sqlConnection.Open();
 
-            var type = item.GetType();
+            var type = typeof(T);
             var properties = type.GetProperties();
             var sql = "SELECT * FROM " + type.Name;
 
@@ -187,9 +187,38 @@ namespace AdoNetExamples
             return TableDatas;
         }
 
+
+        //GetBy ID
+
+
         public T GetById(int id)
         {
-            throw new NotImplementedException();
+            if (_sqlConnection.State == System.Data.ConnectionState.Closed)
+                _sqlConnection.Open();
+
+            var type = typeof(T);
+            var properties = type.GetProperties();
+            var sql = "SELECT * FROM " + type.Name+" Where Id ="+id+(" ;");
+
+            using SqlCommand command = new SqlCommand(sql, _sqlConnection);
+            var reader = command.ExecuteReader();
+
+            
+            var t = typeof(T);
+            
+                T obj = (T)Activator.CreateInstance(t);
+            while (reader.Read())
+            {
+                t.GetProperties().ToList().ForEach(p =>
+                {
+                    p.SetValue(obj, reader[p.Name]);
+                });
+            }
+
+                
+            
+                return obj;
+
         }
     }
 
