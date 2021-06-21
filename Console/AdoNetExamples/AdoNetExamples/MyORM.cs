@@ -130,7 +130,9 @@ namespace AdoNetExamples
         }
 
 
+
         //Delete
+
 
         public void Delete(T item)
         {
@@ -152,9 +154,37 @@ namespace AdoNetExamples
             Console.WriteLine("Deleted Successfull");
         }
 
-        public IList<T> GetAll()
+
+
+        //Get All
+
+        public IList<T> GetAll(T item)
         {
-            throw new NotImplementedException();
+            if (_sqlConnection.State == System.Data.ConnectionState.Closed)
+                _sqlConnection.Open();
+
+            var type = item.GetType();
+            var properties = type.GetProperties();
+            var sql = "SELECT * FROM " + type.Name;
+
+            using SqlCommand command = new SqlCommand(sql, _sqlConnection);
+            var reader = command.ExecuteReader();
+            
+            List<T> TableDatas = new List<T>();
+            var t = typeof(T);
+            while (reader.Read())
+            {
+                T obj = (T)Activator.CreateInstance(t);
+                t.GetProperties().ToList().ForEach(p =>
+                {
+                    p.SetValue(obj, reader[p.Name]);
+                } );
+
+                TableDatas.Add(obj);
+                
+            }
+
+            return TableDatas;
         }
 
         public T GetById(int id)

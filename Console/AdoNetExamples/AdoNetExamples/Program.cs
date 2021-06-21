@@ -15,63 +15,24 @@ namespace AdoNetExamples
 
             Student student = new Student();
             MyORM<Student> ORM = new MyORM<Student>(connection.ConnectionString);
-            student.Id = 5;
-            student.Name ="Hasan" ;
-            student.Weight =85;
+            //student.Id = 5;
+            //student.Name = "Hasan";
+            //student.Weight = 85;
 
 
             //ORM.Insert(student);
             //ORM.Update(student);
-            ORM.Delete(student);
-
-
-
-            var sql2 = "select * from student";
-           // var students = ReadOperation(sql2, connection);
-
-           /* foreach(var student in students)
+            //ORM.Delete(student);
+           
+            //get all data 
+            var TableData = ORM.GetAll(student);
+            foreach (var data in TableData)
             {
-                Console.WriteLine($"Id = {student.Id}, Name = {student.Name}, Weight = {student.Weight}");
+                Console.WriteLine($"Id = {data.Id}, Name = {data.Name}, Weight = {data.Weight}");
             }
-
-            Console.WriteLine("Complete");*/
+         
+            Console.WriteLine($"Successfull");
         }
-
-        /*static void WriteOperation(string sql, SqlConnection connection)
-        {
-            if (connection.State == System.Data.ConnectionState.Closed)
-                connection.Open();
-
-            using SqlCommand command = new SqlCommand();
-            command.CommandText = sql;
-            command.Connection = connection;
-
-            command.ExecuteNonQuery();
-        }
-
-       
-
-        static IList<Student> ReadOperation(string sql, SqlConnection connection)
-        {
-            if (connection.State == System.Data.ConnectionState.Closed)
-                connection.Open();
-
-            using SqlCommand command = new SqlCommand(sql, connection);
-
-            var reader = command.ExecuteReader();
-
-            var students = new List<Student>();
-            while(reader.Read())
-            {
-                var student = new Student();
-                student.Id = (int)reader["Id"];
-                student.Name = (string)reader["Name"];
-                student.Weight = (decimal)reader["Weight"];
-
-                students.Add(student);
-            }
-
-            return students;
-        }*/
+         
     }
-}
+    }
