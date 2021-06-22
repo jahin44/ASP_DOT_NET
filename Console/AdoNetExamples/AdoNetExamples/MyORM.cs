@@ -25,7 +25,6 @@ namespace AdoNetExamples
 
 
         //UPDATE 
-
         public void Update(T item)
         {
             var sql = new StringBuilder("UPDATE ");
@@ -53,17 +52,13 @@ namespace AdoNetExamples
                 }
             }
 
-
             sql.Append(';');
             var query = sql.ToString();
 
             var command = new SqlCommand(query, _sqlConnection);
             foreach (var property in properties)
-            {
-                 
-                command.Parameters.AddWithValue(property.Name, property.GetValue(item));
-               
-
+            {                 
+                command.Parameters.AddWithValue(property.Name, property.GetValue(item));              
             }
 
             if (_sqlConnection.State == System.Data.ConnectionState.Closed)
@@ -74,7 +69,6 @@ namespace AdoNetExamples
             Console.WriteLine("Update Successfull");
 
         }
-
 
 
           //INSERT 
@@ -114,11 +108,8 @@ namespace AdoNetExamples
 
             var command = new SqlCommand(query, _sqlConnection);
             foreach (var property in properties)
-            {
-                 
-               command.Parameters.AddWithValue(property.Name, property.GetValue(item));
-                 
-                    
+            {                 
+               command.Parameters.AddWithValue(property.Name, property.GetValue(item));                                     
             }
 
             if (_sqlConnection.State == System.Data.ConnectionState.Closed)
@@ -136,11 +127,12 @@ namespace AdoNetExamples
 
         public void Delete(T item)
         {
-            Delete(item.Id,item.GetType());
+            Delete(item.Id);
         }
 
-        public void Delete(int Id,Type type)
+        public void Delete(int Id)
         {
+            var type = typeof(T);
             var sql = new StringBuilder("DELETE FROM ");
             sql.Append(type.Name).Append(" WHERE").Append(" Id").Append('=').Append(Id).Append(';');
             var query = sql.ToString();
@@ -151,13 +143,12 @@ namespace AdoNetExamples
 
             command.Connection = _sqlConnection;
             command.ExecuteNonQuery();
-            Console.WriteLine("Deleted Successfull");
+            Console.WriteLine("Delete Successfull");
         }
 
 
 
         //Get All
-
         public IList<T> GetAll()
         {
             if (_sqlConnection.State == System.Data.ConnectionState.Closed)
@@ -175,15 +166,12 @@ namespace AdoNetExamples
             while (reader.Read())
             {
                 T obj = (T)Activator.CreateInstance(t);
-                t.GetProperties().ToList().ForEach(p =>
+                t.GetProperties().ToList().ForEach(property =>
                 {
-                    p.SetValue(obj, reader[p.Name]);
+                    property.SetValue(obj, reader[property.Name]);
                 } );
-
-                TableDatas.Add(obj);
-                
+                TableDatas.Add(obj);                
             }
-
             return TableDatas;
         }
 
@@ -209,15 +197,13 @@ namespace AdoNetExamples
                 T obj = (T)Activator.CreateInstance(t);
             while (reader.Read())
             {
-                t.GetProperties().ToList().ForEach(p =>
+                t.GetProperties().ToList().ForEach(property =>
                 {
-                    p.SetValue(obj, reader[p.Name]);
-                });
+                    property.SetValue(obj, reader[property.Name]);
+                } );
             }
 
-                
-            
-                return obj;
+            return obj;
 
         }
     }

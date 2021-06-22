@@ -13,32 +13,32 @@ namespace AdoNetExamples
  
             Student student = new Student();
             MyORM<Student> ORM = new MyORM<Student>(connection.ConnectionString);
-            //student.Id = 5;
-            //student.Name = "Hasan";
-            //student.Weight = 85;
+            student.Id = 1002;
+            student.Name = "Hasan";
+            student.Weight = 85;
+
+            ORM.Insert(student);
+
+            ORM.Update(student);
+
+            ORM.Delete(student);
 
 
-            //ORM.Insert(student);
-            //ORM.Update(student);
-            //ORM.Delete(student);
+            //get all data
 
-            //get all data 
-            //var TableData = ORM.GetAll();
-
-            //foreach (var data in TableData)
-            //{
-            //    Console.WriteLine($"Id = {data.Id}, Name = {data.Name}, Weight = {data.Weight}");
-            //}
+            var TableData = ORM.GetAll();
+            foreach (var data in TableData)
+            {
+                Console.WriteLine($"Id = {data.Id}, Name = {data.Name}, Weight = {data.Weight}");
+            }
 
 
             //Get By ID
-            
-            var IdData = ORM.GetById(1002);
+
+            var IdData = ORM.GetById(1005);
             Console.WriteLine($"Id = {IdData.Id}, Name = {IdData.Name}, Weight = {IdData.Weight}");
 
-
-
-            Console.WriteLine($"Successfull");
+            Console.WriteLine("Successfull");
         }
          
     }
