@@ -41,22 +41,30 @@ namespace WebAppMVC
 
         public void ConfigureContainer(ContainerBuilder builder)
         {
+            var connectionInfo = GetConnectionstringAndAssemblyName();
 
+            builder.RegisterModule(new DataModule(connectionInfo.connectionString,
+                    connectionInfo.migrationAssemblyName));
             builder.RegisterModule(new WebModule());
         }
 
-
-
-        // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        private (string connectionString,string migrationAssemblyName) GetConnectionstringAndAssemblyName()
         {
             var connectionStringName = "DefaultConnection";
             var connectionString = Configuration.GetConnectionString(connectionStringName);
             var migrationAssemblyName = typeof(Startup).Assembly.FullName;
+            return (connectionString, migrationAssemblyName);
+        }
+
+        // This method gets called by the runtime. Use this method to add services to the container.
+        public void ConfigureServices(IServiceCollection services)
+        {
+            var connectionInfo = GetConnectionstringAndAssemblyName();
             services.AddDbContext<ApplicationDbContext>(options =>
-                 options.UseSqlServer(connectionString));
+                 options.UseSqlServer(connectionInfo.connectionString));
             services.AddDbContext<TrainingContext>(options =>
-                  options.UseSqlServer(connectionString, b => b.MigrationsAssembly(migrationAssemblyName)));
+                  options.UseSqlServer(connectionInfo.connectionString, b => 
+                  b.MigrationsAssembly(connectionInfo.migrationAssemblyName)));
             services.ConfigureApplicationCookie(options =>
             {
                 // Cookie settings
