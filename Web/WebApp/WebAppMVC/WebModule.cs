@@ -4,7 +4,7 @@ using WebAppMVC.DependencyAuto;
 
 namespace WebAppMVC
 {
-    internal class WebModule : Module
+    public class WebModule : Module
     {
 
         protected override void Load(ContainerBuilder builder)
