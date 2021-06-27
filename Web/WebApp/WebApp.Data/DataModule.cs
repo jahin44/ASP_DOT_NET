@@ -23,8 +23,8 @@ namespace WebApp.Data
         {
  
             builder.RegisterType<TrainingContext>().AsSelf()
-                  .WithParameter("connectionString", _connectionString)
-                  .WithParameter("migrationAssembly", _migrationAssemblyName)
+                  .WithParameter("connectionString",_connectionString)
+                  .WithParameter("migrationAssemblyName", _migrationAssemblyName)
                   .InstancePerLifetimeScope();
             base.Load(builder);
         }

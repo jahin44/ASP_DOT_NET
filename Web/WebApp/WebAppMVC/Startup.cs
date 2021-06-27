@@ -65,9 +65,12 @@ namespace WebAppMVC
             services.AddDbContext<TrainingContext>(options =>
                   options.UseSqlServer(connectionInfo.connectionString, b => 
                   b.MigrationsAssembly(connectionInfo.migrationAssemblyName)));
+
+            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<ApplicationDbContext>();
             services.ConfigureApplicationCookie(options =>
             {
-                // Cookie settings
+                // Cookie settings  
                 options.Cookie.HttpOnly = true;
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
 
@@ -83,8 +86,7 @@ namespace WebAppMVC
                 options.Cookie.IsEssential = true;
             });
             
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            
             
             services.Configure<SmtpConfiguration>(Configuration.GetSection("Smtp"));
             services.AddControllersWithViews();
