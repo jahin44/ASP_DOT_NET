@@ -85,7 +85,7 @@ namespace AdoNetExamples
             sql.Append('(');
             foreach (var property in properties)
             {
-                if (property != properties[0] )
+                if (property.PropertyType.Namespace.StartsWith("System") == true )
                 {
                     sql.Append(' ').Append(property.Name).Append(',');
                 }
@@ -96,7 +96,7 @@ namespace AdoNetExamples
 
             foreach (var property in properties)
             {
-                if (property != properties[0])
+                if (property.PropertyType.Namespace.StartsWith("System") == true)
                 {
                     sql.Append('@').Append(property.Name).Append(',');
                 }
@@ -108,8 +108,11 @@ namespace AdoNetExamples
 
             var command = new SqlCommand(query, _sqlConnection);
             foreach (var property in properties)
-            {                 
-               command.Parameters.AddWithValue(property.Name, property.GetValue(item));                                     
+            {
+                if (property.PropertyType.Namespace.StartsWith("System") == true)
+                {
+                    command.Parameters.AddWithValue(property.Name, property.GetValue(item));
+                }   
             }
 
             if (_sqlConnection.State == System.Data.ConnectionState.Closed)

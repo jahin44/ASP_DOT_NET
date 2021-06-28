@@ -37,7 +37,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DependencyInjection", "Depe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ADONET", "ADONET\ADONET.csproj", "{8542BAB3-BFB7-4DC6-BEB4-F19BBC073F0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Removed", "Removed\Removed.csproj", "{5860A6B0-0BA8-4A99-A51B-EA6A37B7C29B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Removed", "Removed\Removed.csproj", "{5860A6B0-0BA8-4A99-A51B-EA6A37B7C29B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoObjList", "AutoObjList\AutoObjList.csproj", "{EA607AA6-B789-41D4-BE0E-F3AF96C7E5B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypeOf_Method", "TypeOf_Method\TypeOf_Method.csproj", "{C5626257-C6E8-4B64-987F-3AD10083CAC8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -117,6 +121,14 @@ Global
 		{5860A6B0-0BA8-4A99-A51B-EA6A37B7C29B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5860A6B0-0BA8-4A99-A51B-EA6A37B7C29B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5860A6B0-0BA8-4A99-A51B-EA6A37B7C29B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA607AA6-B789-41D4-BE0E-F3AF96C7E5B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA607AA6-B789-41D4-BE0E-F3AF96C7E5B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA607AA6-B789-41D4-BE0E-F3AF96C7E5B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA607AA6-B789-41D4-BE0E-F3AF96C7E5B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5626257-C6E8-4B64-987F-3AD10083CAC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5626257-C6E8-4B64-987F-3AD10083CAC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5626257-C6E8-4B64-987F-3AD10083CAC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5626257-C6E8-4B64-987F-3AD10083CAC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
