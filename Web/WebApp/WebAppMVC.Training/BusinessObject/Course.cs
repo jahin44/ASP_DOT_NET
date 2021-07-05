@@ -8,8 +8,8 @@ namespace WebAppMVC.Training.BusinessObject
 {
     public class Course
     {
-        public string Titel { get; set; }
-        public int Fees { get; set; }
-         
+        public string Title { get; set; }
+        public int Fees { get; set; }      
+        public DateTime StartTime { get; set; }
     }
 }

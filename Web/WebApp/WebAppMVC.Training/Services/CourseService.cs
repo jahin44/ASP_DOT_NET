@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using WebApp.Training.Context;
 using WebAppMVC.Training.BusinessObject;
- 
 
 namespace WebAppMVC.Training.Services
 {
@@ -25,7 +24,7 @@ namespace WebAppMVC.Training.Services
             {
                 var course = new Course()
                 {
-                    Titel = entity.Titel,
+                    Title = entity.Titel,
                     Fees = entity.Fees
                 };
                 courses.Add(course);
@@ -37,16 +36,18 @@ namespace WebAppMVC.Training.Services
         {
             _trainingContext.Courses.Add(
                 
-                new Entities.Course
+                new WebApp.Training.Entities.Course
                 {
-                    Title = course.Titel,
+                    Titel=course.Title,
                     Fees= course.Fees,
-                    StartData= course.StartDate
+                    StartDate=course.StartTime
                 }
 
                 );
+            _trainingContext.SaveChanges();
 
-            }
+
+
 
         }
     }
