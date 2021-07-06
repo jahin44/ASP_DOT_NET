@@ -10,14 +10,14 @@ namespace WebAppMVC.Training.Services
 {
     public class CourseService : ICourseService
     {
-        private readonly TrainingContext _trainingContext;
-        public CourseService (TrainingContext trainingContext)
+        private readonly ITrainingUnitOfWork _trainingUnitOfWork;
+        public CourseService (ITrainingUnitOfWork trainingUnitOfWork)
             {
-            _trainingContext = trainingContext;
+            _trainingUnitOfWork = trainingUnitOfWork;
             }
         public IList<Course> GetAllCourses()
         {
-            var courseEntities = _trainingContext.Courses.ToList();
+            var courseEntities = _trainingContext.Courses.GetAll();
             var courses = new List<Course>();
 
             foreach(var entity in courseEntities)
@@ -38,9 +38,9 @@ namespace WebAppMVC.Training.Services
                 
                 new WebApp.Training.Entities.Course
                 {
-                    Titel=course.Title,
-                    Fees= course.Fees,
-                    StartDate=course.StartTime
+                    Titel = course.Title,
+                    Fees = course.Fees,
+                    StartDate = course.StartTime
                 }
 
                 );

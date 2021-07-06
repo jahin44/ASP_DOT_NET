@@ -13,3 +13,4 @@ namespace WebAppMVC.Training.BusinessObject
         public DateTime StartTime { get; set; }
     }
 }
+ 
