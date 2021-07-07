@@ -20,6 +20,11 @@ namespace WebAppMVC.Data
             _dbcontext.Set<T>().Add(item);
         }
 
+        public IList<T> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Remove(T item)
         {
             _dbcontext.Set<T>().Remove(item);

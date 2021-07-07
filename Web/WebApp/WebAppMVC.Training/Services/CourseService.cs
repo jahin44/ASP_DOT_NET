@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WebApp.Training.Context;
 using WebAppMVC.Training.BusinessObject;
+using WebAppMVC.Training.UnitOfWorks;
 
 namespace WebAppMVC.Training.Services
 {
@@ -12,12 +13,12 @@ namespace WebAppMVC.Training.Services
     {
         private readonly ITrainingUnitOfWork _trainingUnitOfWork;
         public CourseService (ITrainingUnitOfWork trainingUnitOfWork)
-            {
-            _trainingUnitOfWork = trainingUnitOfWork;
-            }
+        {
+         _trainingUnitOfWork = trainingUnitOfWork;
+        }
         public IList<Course> GetAllCourses()
         {
-            var courseEntities = _trainingContext.Courses.GetAll();
+            var courseEntities = _trainingUnitOfWork.Courses.GetAll();
             var courses = new List<Course>();
 
             foreach(var entity in courseEntities)
@@ -34,7 +35,7 @@ namespace WebAppMVC.Training.Services
 
         public void CreateCourse(Course course)
         {
-            _trainingContext.Courses.Add(
+            _trainingUnitOfWork.Courses.Add(
                 
                 new WebApp.Training.Entities.Course
                 {
@@ -44,7 +45,7 @@ namespace WebAppMVC.Training.Services
                 }
 
                 );
-            _trainingContext.SaveChanges();
+            _trainingUnitOfWork.Save();
 
 
 

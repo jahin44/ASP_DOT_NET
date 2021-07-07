@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace WebAppMVC.Data
 {
-    interface IUnitOfWork
+    public interface IUnitOfWork
     {
-          void Save();
+         public void Save();
     }
 }
