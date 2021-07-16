@@ -8,6 +8,6 @@ namespace WebAppMVC.Data
 {
     public interface IUnitOfWork
     {
-         public void Save();
+        public void Save();
     }
 }
