@@ -12,11 +12,12 @@ namespace WebAppMVC.Areas.Admin.Controllers
     {
         public IActionResult Index()
         {
-            var model = new CourseListModel();
-            model.LoadModelData();
-            return View(model);
+            return View();
         }
 
-         
+        public IActionResult Form()
+        {
+            return View();
+        }
     }
 }

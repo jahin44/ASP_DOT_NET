@@ -11,6 +11,7 @@ namespace WebAppMVC.Training.BusinessObject
         public string Title { get; set; }
         public int Fees { get; set; }      
         public DateTime StartTime { get; set; }
+        public DateTime StartDate { get; set; }
     }
 }
  
