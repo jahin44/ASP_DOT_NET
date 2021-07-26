@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WebAppMVC.DependencyAuto
+namespace WebAppMVC.Services
 {
-    public interface IDriver
+    public interface IDriverService
     {
-       public void Install();
+        void Run();
     }
 }

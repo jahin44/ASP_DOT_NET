@@ -5,14 +5,13 @@ using System.Threading.Tasks;
 
 namespace WebAppMVC.Models
 {
-    public class FirstPageText
+    public class SummaryModel
     {
-       public string Text { get; set; }
+        public string SummaryText { get; set; }
 
-       public FirstPageText()
+        public SummaryModel()
         {
-            Text = "Jahin Hasan";
+            SummaryText = "Hello World";
         }
-
     }
 }

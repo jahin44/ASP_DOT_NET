@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WebAppMVC.DependencyAuto
+namespace WebAppMVC.Services
 {
-    public class DriverInstall : IDriver
+    public class LocalDriver : IDriverService
     {
-        public void Install()
+        public void Run()
         {
-             
+            
         }
     }
 }
