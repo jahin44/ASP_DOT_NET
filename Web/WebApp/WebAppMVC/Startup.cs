@@ -13,10 +13,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WebApp.Training;
-using WebApp.Training.Context;
+using WebAppMVC.Training;
 using WebAppMVC.Data;
 using WebAppMVC.Models;
+using WebAppMVC.Common;
+using WebAppMVC.Training.Contexts;
+using WebAppMVC.Services;
 
 namespace WebAppMVC
 {
@@ -141,3 +143,4 @@ namespace WebAppMVC
             });
         }
     }
+}

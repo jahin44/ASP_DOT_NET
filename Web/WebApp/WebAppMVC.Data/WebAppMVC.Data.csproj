@@ -11,6 +11,9 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.10" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\WebAppMVC.Common\WebAppMVC.Common.csproj" />
 	</ItemGroup>	
 	
 

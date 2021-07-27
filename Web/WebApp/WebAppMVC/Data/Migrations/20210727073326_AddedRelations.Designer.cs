@@ -5,14 +5,13 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using WebAppMVC.Training;
 using WebAppMVC.Training.Contexts;
 
-namespace WebAppMVC.Data.Migrations
+namespace WebAppMVC.Migrations.Training
 {
     [DbContext(typeof(TrainingContext))]
-    [Migration("20210701052130_addNewPropertyAge")]
-    partial class addNewPropertyAge
+    [Migration("20210727073326_AddedRelations")]
+    partial class AddedRelations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -22,7 +21,7 @@ namespace WebAppMVC.Data.Migrations
                 .HasAnnotation("ProductVersion", "5.0.5")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("WebApp.Training.Course", b =>
+            modelBuilder.Entity("WebAppMVC.Training.Entities.Course", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -35,7 +34,7 @@ namespace WebAppMVC.Data.Migrations
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Titel")
+                    b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -43,28 +42,40 @@ namespace WebAppMVC.Data.Migrations
                     b.ToTable("Courses");
                 });
 
-            modelBuilder.Entity("WebApp.Training.Student", b =>
+            modelBuilder.Entity("WebAppMVC.Training.Entities.CourseStudents", b =>
+                {
+                    b.Property<int>("CourseId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StudentId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CourseId", "StudentId");
+
+                    b.HasIndex("StudentId");
+
+                    b.ToTable("CourseStudents");
+                });
+
+            modelBuilder.Entity("WebAppMVC.Training.Entities.Student", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Age")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("DateOfBirth")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Weight")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.ToTable("Students");
                 });
 
-            modelBuilder.Entity("WebApp.Training.Topic", b =>
+            modelBuilder.Entity("WebAppMVC.Training.Entities.Topic", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -87,9 +98,28 @@ namespace WebAppMVC.Data.Migrations
                     b.ToTable("Topics");
                 });
 
-            modelBuilder.Entity("WebApp.Training.Topic", b =>
+            modelBuilder.Entity("WebAppMVC.Training.Entities.CourseStudents", b =>
                 {
-                    b.HasOne("WebApp.Training.Course", "Course")
+                    b.HasOne("WebAppMVC.Training.Entities.Course", "Course")
+                        .WithMany("EnrolledStudents")
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WebAppMVC.Training.Entities.Student", "Student")
+                        .WithMany("EnrolledCourses")
+                        .HasForeignKey("StudentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Course");
+
+                    b.Navigation("Student");
+                });
+
+            modelBuilder.Entity("WebAppMVC.Training.Entities.Topic", b =>
+                {
+                    b.HasOne("WebAppMVC.Training.Entities.Course", "Course")
                         .WithMany("Topics")
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -98,9 +128,16 @@ namespace WebAppMVC.Data.Migrations
                     b.Navigation("Course");
                 });
 
-            modelBuilder.Entity("WebApp.Training.Course", b =>
+            modelBuilder.Entity("WebAppMVC.Training.Entities.Course", b =>
                 {
+                    b.Navigation("EnrolledStudents");
+
                     b.Navigation("Topics");
+                });
+
+            modelBuilder.Entity("WebAppMVC.Training.Entities.Student", b =>
+                {
+                    b.Navigation("EnrolledCourses");
                 });
 #pragma warning restore 612, 618
         }

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WebAppMVC.Training.BusinessObject;
+using WebAppMVC.Training.BusinessObjects;
 using WebAppMVC.Training.Services;
 
 namespace WebAppMVC.Areas.Admin.Models

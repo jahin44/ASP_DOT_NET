@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebAppMVC.Training.Services;
-using WebAppMVC.Training.BusinessObject;
+using WebAppMVC.Training.BusinessObjects;
 
 namespace WebAppMVC.Areas.Admin.Models
 {

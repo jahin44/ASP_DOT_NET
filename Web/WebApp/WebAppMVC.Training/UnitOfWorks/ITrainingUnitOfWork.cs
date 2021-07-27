@@ -1,9 +1,9 @@
-﻿using FirstDemo.Data;
-using FirstDemo.Training.Contexts;
-using FirstDemo.Training.Entities;
-using FirstDemo.Training.Repositories;
+﻿using WebAppMVC.Data;
+using WebAppMVC.Training.Contexts;
+using WebAppMVC.Training.Entities;
+using WebAppMVC.Training.Repositories;
 
-namespace FirstDemo.Training.UnitOfWorks
+namespace WebAppMVC.Training.UnitOfWorks
 {
     public interface ITrainingUnitOfWork : IUnitOfWork
     {

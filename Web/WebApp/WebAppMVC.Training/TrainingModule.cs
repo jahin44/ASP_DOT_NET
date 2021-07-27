@@ -1,15 +1,15 @@
 ﻿using Autofac;
-using FirstDemo.Training.Contexts;
-using FirstDemo.Training.Repositories;
-using FirstDemo.Training.Services;
-using FirstDemo.Training.UnitOfWorks;
+using WebAppMVC.Training.Contexts;
+using WebAppMVC.Training.Repositories;
+using WebAppMVC.Training.Services;
+using WebAppMVC.Training.UnitOfWorks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FirstDemo.Training
+namespace WebAppMVC.Training
 {
     public class TrainingModule : Module
     {

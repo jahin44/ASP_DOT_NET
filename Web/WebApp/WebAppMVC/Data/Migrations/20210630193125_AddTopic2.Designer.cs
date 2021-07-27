@@ -5,8 +5,8 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using WebApp.Training;
-using WebApp.Training.Context;
+using WebAppMVC.Training;
+using WebAppMVC.Training.Contexts;
 
 namespace WebAppMVC.Data.Migrations
 {

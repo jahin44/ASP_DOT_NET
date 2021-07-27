@@ -1,7 +1,7 @@
-﻿using FirstDemo.Data;
-using FirstDemo.Training.Contexts;
-using FirstDemo.Training.Entities;
-using FirstDemo.Training.Repositories;
+﻿using WebAppMVC.Data;
+using WebAppMVC.Training.Contexts;
+using WebAppMVC.Training.Entities;
+using WebAppMVC.Training.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FirstDemo.Training.UnitOfWorks
+namespace WebAppMVC.Training.UnitOfWorks
 {
     public class TrainingUnitOfWork : UnitOfWork, ITrainingUnitOfWork
     {

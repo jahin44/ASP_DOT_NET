@@ -46,6 +46,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\WebAppMVC.Common\WebAppMVC.Common.csproj" />
     <ProjectReference Include="..\WebAppMVC.Data\WebAppMVC.Data.csproj" />
     <ProjectReference Include="..\WebAppMVC.Training\WebAppMVC.Training.csproj" />
   </ItemGroup>
