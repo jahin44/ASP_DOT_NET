@@ -16,7 +16,6 @@ using System.Threading.Tasks;
 using WebApp.Training;
 using WebApp.Training.Context;
 using WebAppMVC.Data;
-using WebAppMVC.DependencyAuto;
 using WebAppMVC.Models;
 
 namespace WebAppMVC
@@ -42,14 +41,16 @@ namespace WebAppMVC
 
         public void ConfigureContainer(ContainerBuilder builder)
         {
-            var connectionInfo = GetConnectionstringAndAssemblyName();
+            var connectionInfo = GetConnectionStringAndAssemblyName();
 
             builder.RegisterModule(new TrainingModule(connectionInfo.connectionString,
-                    connectionInfo.migrationAssemblyName));
+                connectionInfo.migrationAssemblyName));
+
+            builder.RegisterModule(new CommonModule());
             builder.RegisterModule(new WebModule());
         }
 
-        private (string connectionString,string migrationAssemblyName) GetConnectionstringAndAssemblyName()
+        private (string connectionString, string migrationAssemblyName) GetConnectionStringAndAssemblyName()
         {
             var connectionStringName = "DefaultConnection";
             var connectionString = Configuration.GetConnectionString(connectionStringName);
@@ -60,18 +61,22 @@ namespace WebAppMVC
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var connectionInfo = GetConnectionstringAndAssemblyName();
-            services.AddDbContext<ApplicationDbContext>(options =>
-                 options.UseSqlServer(connectionInfo.connectionString));
-            services.AddDbContext<TrainingContext>(options =>
-                  options.UseSqlServer(connectionInfo.connectionString, b => 
-                  b.MigrationsAssembly(connectionInfo.migrationAssemblyName)));
+            var connectionInfo = GetConnectionStringAndAssemblyName();
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(connectionInfo.connectionString));
+
+            services.AddDbContext<TrainingContext>(options =>
+                options.UseSqlServer(connectionInfo.connectionString, b =>
+                b.MigrationsAssembly(connectionInfo.migrationAssemblyName)));
+
+            services.AddDefaultIdentity<IdentityUser>(options =>
+                options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
             services.ConfigureApplicationCookie(options =>
             {
-                // Cookie settings  
+                // Cookie settings
                 options.Cookie.HttpOnly = true;
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
 
@@ -86,22 +91,22 @@ namespace WebAppMVC
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
             });
-            
-            
-            
+
+            services.AddTransient<IDriverService, LocalDriver>();
+
             services.Configure<SmtpConfiguration>(Configuration.GetSection("Smtp"));
+
             services.AddControllersWithViews();
             services.AddHttpContextAccessor();
             services.AddRazorPages();
             services.AddDatabaseDeveloperPageExceptionFilter();
-             
-            services.AddTransient<IDriver, DriverInstall>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             AutofacContainer = app.ApplicationServices.GetAutofacRoot();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -115,23 +120,24 @@ namespace WebAppMVC
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseSession();
+
             app.UseRouting();
 
             app.UseAuthentication();
             app.UseAuthorization();
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
-                name: "areas",
-                pattern: "{area:exists}/{controller=Admin}/{action=Index}/{Id?}"
-              );
+                    name: "areas",
+                    pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{Id?}"
+                );
+
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=NewHome}/{action=FirstPage}/{id?}");
+                    pattern: "{controller=Dashboard}/{action=Summary}/{id?}");
                 endpoints.MapRazorPages();
             });
         }
     }
-}

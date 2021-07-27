@@ -51,5 +51,6 @@ namespace WebAppMVC
                     webBuilder.UseStartup<Startup>();
                     webBuilder.UseUrls("http://*:80");
                 });
+
     }
 }
