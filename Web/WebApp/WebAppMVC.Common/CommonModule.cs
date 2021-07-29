@@ -7,10 +7,10 @@ namespace WebAppMVC.Common
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<DateTimeUtility>().As<IDateTimeUtility>()
-                .InstancePerLifetimeScope();
+             builder.RegisterType<DateTimeUtility>().As<IDateTimeUtility>()
+                 .InstancePerLifetimeScope();
 
-            base.Load(builder);
+             base.Load(builder);
         }
     }
 }
