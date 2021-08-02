@@ -23,8 +23,7 @@ namespace WebAppMVC.Areas.Admin.Controllers
             var model = new CourseListModel();
             model.LoadModelData();
             return View(model);
-        }
-
+        } 
         public IActionResult Enroll()
         {
             var model = new EnrollStudentModel();
