@@ -1,0 +1,3 @@
+2021-08-16 15:53:09.200 +06:00 [INF] Application Starting up
+2021-08-16 15:54:17.969 +06:00 [WRN] User password validation failed: PasswordRequiresNonAlphanumeric;PasswordRequiresDigit;PasswordRequiresUpper.
+2021-08-16 15:55:13.177 +06:00 [WRN] User password validation failed: PasswordRequiresNonAlphanumeric;PasswordRequiresUpper.
